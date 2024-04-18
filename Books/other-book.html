@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="comain.css">
+  <title>Others Library Book</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+ <link rel="stylesheet" href="comain.css">
+</head>
+<body>
+  <header>
+    <h1>Others Library Book</h1>
+  </header>
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+  
+    <div class="books">
+      <div class="book">
+        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg" alt="Book Cover">
+        <h2>The Alchemist</h2>
+        <p>By Paulo Coelho
+        </p>
+        <button class="link-b"><a class="book-link" href="https://www.goodreads.com/book/show/18144590-the-alchemist">Details</a></button>
+      </div>
+  
+      <div class="book">
+        <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/d1618201f_77545.jpg" alt="Book Cover">
+        <h2>ভারতবর্ষের ইতিহাস</h2>
+        <p>By কাকাআন্তোনভা, গ্রিগোরি বোনগার্দ, লেভিন, গ্রিগোরি কতোভস্কি</p>
+        <button>Details</button>
+      </div>
+  
+      <div class="book">
+        <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/rokimg_0709_9611.GIF" alt="Book Cover">
+        <h2>Tভিজুয়্যাল বেসিক-৬</h2>
+        <p>By মোঃ কামরুজ্জামান নিটন</p>
+        <button>Details</button>
+      </div>
+      <div class="book">
+        <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/fe5dee97d_144370.jpg" alt="Book Cover">
+        <h2>Reading for Pleasure 1-20 Part</h2>
+        <p>By  Rozina Parvin ,Sayeada Farha Sahida Islam</p>
+        <button>Details</button>
+      </div>
+
+      <!-- Add the rest of your book divs here -->
+      <div class="book">
+        <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/b88b9003c_82940.jpg" alt="Book Cover">
+        <h2>শুদ্ধ বানান চর্চা</h2>
+        <p>By  ড. মোহাম্মদ আমীন (সম্পাদক) ,  হায়াৎ মামুদ (সম্পাদক)</p>
+        <button class="link-b"><a class="book-link" href="https://www.goodreads.com/book/show/15844597">Details</a></button>
+      </div>
+  
+      <div class="book">
+        <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/06b0c68c0_180082.jpg" alt="Book Cover">
+        <h2>অপার্থিব </h2>
+        <p>By মোস্তফা কামাল</p>
+        <button>Details</button>
+      </div>
+  
+      <div class="book">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/%E0%A6%AC%E0%A6%B2%E0%A6%BE%E0%A6%95%E0%A6%BE-%E0%A6%B0%E0%A6%AC%E0%A7%80%E0%A6%A8%E0%A7%8D%E0%A6%A6%E0%A7%8D%E0%A6%B0%E0%A6%A8%E0%A6%BE%E0%A6%A5_%E0%A6%A0%E0%A6%BE%E0%A6%95%E0%A7%81%E0%A6%B0.djvu/page1-220px-%E0%A6%AC%E0%A6%B2%E0%A6%BE%E0%A6%95%E0%A6%BE-%E0%A6%B0%E0%A6%AC%E0%A7%80%E0%A6%A8%E0%A7%8D%E0%A6%A6%E0%A7%8D%E0%A6%B0%E0%A6%A8%E0%A6%BE%E0%A6%A5_%E0%A6%A0%E0%A6%BE%E0%A6%95%E0%A7%81%E0%A6%B0.djvu.jpg" alt="Book Cover">
+        <h2>বলাকা</h2>
+        <p>By রবীন্দ্রনাথ ঠাকুর</p>
+        <button>Details</button>
+      </div>
+      
+      <div class="book">
+        <img src="https://m.media-amazon.com/images/I/51SkIDTd9rL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg" alt="Book Cover">
+        <h2>Harry potter</h2>
+        <p>By J. K. Rowling.</p>
+        <button class="link-b"><a class="book-link" href="https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone">Details</a></button>
+      </div> 
+    </div>
+    
+  </div>
+  
+  <!-- JavaScript -->
+<script>
+
+  // Add click event listener to search button
+const searchButton = document.querySelector('.search-bar button');
+searchButton.addEventListener('click', performSearch);
+
+// Add keydown event listener to search input
+const searchInput = document.querySelector('.search-bar input');
+searchInput.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    performSearch();
+  }
+});
+
+// Define search function
+function performSearch() {
+  // Get search input value
+  const searchInput = document.querySelector('.search-bar input');
+  const searchValue = searchInput.value.trim().toLowerCase();
+  
+  // Get book grid
+  const bookGrid = document.querySelector('.books');
+  
+  // If search input is empty, show all books and return
+  if (searchValue === '') {
+    const books = bookGrid.querySelectorAll('.book');
+    books.forEach(book => {
+      book.style.display = 'block';
+    });
+    searchInput.value = ''; // Clear search input value
+    return;
+  }
+  
+  // Loop through all books in grid
+  const books = bookGrid.querySelectorAll('.book');
+  books.forEach(book => {
+    // Get book title and author
+    const title = book.querySelector('h2').textContent.toLowerCase();
+    const author = book.querySelector('p').textContent.toLowerCase();
+    
+    // Check if book title or author matches search value
+    if (title.includes(searchValue) || author.includes(searchValue)) {
+      book.style.display = 'block'; // Show book
+    } else {
+      book.style.display = 'none'; // Hide book
+    }
+  });
+  
+  // Clear search input value
+  searchInput.value = '';
+}
+
+// Add click event listener to all book buttons
+const buttons = document.querySelectorAll('.book button');
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    alert('Book details not available yet!');
+  });
+});
+
+</script>
+
+</body>
+</html>
+
+
+  
+  
